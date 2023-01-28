@@ -1,5 +1,7 @@
 import React from "react";
+import Service from "./Service";
 import { services } from "../data";
+
 import Title from "./Title";
 
 const Services = () => {
@@ -7,22 +9,9 @@ const Services = () => {
     <section className="section services" id="services">
       <Title title="About" subTitle="us" />
       <div className="section-center services-center">
-
-        {services.map((service) => {
-          const { id, icon, title, paragraphe } = service;
-          return (
-            <article key={id} className="service">
-              <span className="service-icon">
-                <i className={icon}></i>
-              </span>
-              <div className="service-info">
-                <h4 className="service-title">{title}</h4>
-                <p className="service-text">{paragraphe}</p>
-              </div>
-            </article>
-          );
-        })}
-        
+      {services.map((service) => {
+        return <Service key={service.id} {...service}/>
+      })}
       </div>
     </section>
   );
